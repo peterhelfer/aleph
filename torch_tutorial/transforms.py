@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+#
 import torch
 from torchvision import datasets
 from torchvision.transforms import ToTensor, Lambda
