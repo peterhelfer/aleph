@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 #
 """
-aleph_0.py
+aleph_0_net.py
 ~~~~~~
 
 The aleph_0 network
+
+Collection of RNNs that communicate somehow... (not sure what OI was trying to
+do here, abandoned when I decided to work on predictive coding instead.
+
 """
 
 #-------------------------------------------------------------------------------

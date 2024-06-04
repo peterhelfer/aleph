@@ -33,7 +33,7 @@ Aim: Develop an intelligent system architecture
        learning. Overall network activity signifies recognition. Train on
        simple time-series task (FSDD?). 
 
-     - Then: extend to layer of recognisers/simulators
+     - Then: extend to layers of recognisers/simulators
 
      Study:
 
@@ -84,6 +84,10 @@ Recent paper:
 which builds on earlier works:
 - Jiang & Rao 2022, Predictive Coding Theories of Cortical Function
 - Rao & Ballard 1999 Predictive coding
+- Rao 1999 An optimal estimation approach to visual perception and learning
+    ==> This is by far the best explanation. Also, it really helped to learn
+        about Kalman filters first. Babb 2015 is the best explanation for that.
+
 
 This is all very cool stuff: higher layers generate predictions, send them
 to lower layers; lower layers compute difference between these predictions
@@ -106,6 +110,7 @@ Also:
 - Grush 2004, Emulation Theory
 - Friston: multiple works cited by And Clark
 - Ransom & Fazelpour 2015 Three Problems (also cited by Andy Clark)
+- Babb 2015 How a Kalman filter works, in pictures
 
 ======= 2024-01-24 =======
 
@@ -234,3 +239,27 @@ Deep Belief Networks
 
 
 Predictive coding approximates backprop along arbitrary computation graphs
+
+======= 2024-04-05 =======
+Reading up existing implementation of predicting coding models, as found at
+paperswithcode.com:
+
+- Lotter et al. 2017: prednet
+    - forward (error signaling) and backward (prediction) layers implemented
+      by convolutional networks.
+    - applied to video frame prediction (moving cars and tumbling heads)
+    ==> Replacing the lightweight layers in Rao's architecture with heavy
+        CNNs may improve performance, but makes this architecture unsuitable
+        for neuromorphic impelmentation.
+    
+- van den Oord et al. 2019: Contrastive Predictive Coding
+    ==> While this work does cite Rao & Ballard and Friston, their algorithm
+        does not seem to have anything to do with it, except the name.
+
+======= 2024-06-03 =======
+
+While reading the excellent Rao 1999, I found I had to make a detour to
+understand Kalman filters. I found an excellent exposition in Babb 2015.
+I'll try to implement according to that model.
+
+

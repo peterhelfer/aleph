@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 #
 """
-aleph.py
+aleph_0.py
 ~~~~~~
 
-The aleph main program
+The aleph_0 main program, driver for the aleph_0_net network.
 
 By Peter Helfer, 2023
 """
