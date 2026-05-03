@@ -1,0 +1,8 @@
+- aleph_00.py, aleph_00_net.py: experimenting with ensembles of RNNs. Aborted.
+- bogacz_ex3.py: Exercize 3 from Bogacz 2017.
+- Dataset.py: types and routines for datasets used to train LSMs
+- kalman_00.py: Kalman filter tets program
+- lsm.py: LSM implementation that I worked with at NuAI lab
+- make_dataset.py: make Dataset.py type of dataset
+- predco_00.py: first predictive coding attempt
+- squeezer.py
