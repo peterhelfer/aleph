@@ -342,3 +342,48 @@ with Predictive Processing, but I think that's too general.)
 But first I want to see if anyone is doing continual/lifelong learning with
 PredCode. Qiu et al 2026 sounds likke it, but I'm not sure, gotta read
 it. And search for others.
+
+======= 2026-05-04 =======
+Using Stenlunds pcn_cifar10_notebook.ipynb:
+
+      When training/testing the full datasets (train/test) with 4 epochs,
+          accuracy is Top-1: 100%  Top-3: 100%
+      When training/testing the full datasets (train/test) with 1 epochs,
+          accuracy is Top-1: 98.65%  Top-3: 99.96%
+
+I implemented split-cifar10 with subsets for targets {0,1} {2,3} {4,5} {6,7} {8,9}
+Training and testing just one of these subsets, I get
+          accuracy is Top-1: 100%  Top-3: 100%
+even with just 1 epoch.
+(Only reporting Top-1 in the following)
+
+I then trained all 5 subsets one at a time, using 1 epoch.
+After training each subset, I tested all subsets trained so far:
+
+
+After Training:  |   |    0   |    1   |    2   |    3   |    4   |
+                 |---+--------+--------+--------+--------+--------|
+Testing subset   | 0 | 100.00 |  99.95 |  99.95 |  77.60 |  51.80 |
+                 | 1 |        | 100.00 |  99.95 |  99.95 |  99.30 |
+                 | 2 |        |        | 100.00 |  97.95 |  93.60 |
+                 | 3 |        |        |        | 100.00 |  99.85 |
+                 | 4 |        |        |        | 100.00 | 100.00 |
+
+Well, that looks remarkably good, compared to past results with split-mnist
+on LSM or whatever Nick's network was called (tacos/nachos?)
+
+It actually varies quite a bit between test runs. Here's another:
+
+After Training:  |   |    4   |
+                 |---+--------|
+Testing subset   | 0 |  93.20 |
+                 | 1 | 100.00 |
+                 | 2 |  99.50 |
+                 | 3 | 100.00 |
+                 | 4 | 100.00 |
+
+I need to run a bunch of runs and do some statistics...
+
+Next step, I suppose, would be to implement some rehearsal.
+
+
